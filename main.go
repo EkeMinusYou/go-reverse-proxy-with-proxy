@@ -11,7 +11,7 @@ import (
 var (
 	schema    = "http"
 	proxyHost = os.Getenv("PROXY_HOST")
-	port      = 8000
+	port      = "8000"
 )
 
 func main() {
@@ -22,7 +22,7 @@ func main() {
 	}
 	handler := httputil.NewSingleHostReverseProxy(proxyUrl)
 	log.Fatal(http.ListenAndServe(
-		":"+string(rune(port)),
+		":"+port,
 		handler,
 	))
 }
