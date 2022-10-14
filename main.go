@@ -26,7 +26,7 @@ func main() {
 	director := func(req *http.Request) {
 		req.URL.Scheme = "https"
 		req.URL.Host = "example.com"
-		// req.Host = "example.com"
+		req.Host = "example.com"
 	}
 	handler := &httputil.ReverseProxy{
 		Director:  director,
