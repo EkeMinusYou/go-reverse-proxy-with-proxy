@@ -17,6 +17,10 @@ var (
 )
 
 func main() {
+	log.Println(proxyScheme)
+	log.Println(proxyHost)
+	log.Println(backendSchema)
+	log.Println(backendHost)
 	url := &url.URL{
 		Scheme: proxyScheme,
 		Host:   proxyHost,
