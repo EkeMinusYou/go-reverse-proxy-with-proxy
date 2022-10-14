@@ -11,16 +11,12 @@ import (
 var (
 	proxyScheme   = os.Getenv("PROXY_SCHEME")
 	proxyHost     = os.Getenv("PROXY_HOST")
-	backendSchema = os.Getenv("BACKEND_SCHEMA")
+	backendSchema = os.Getenv("BACKEND_SCHEME")
 	backendHost   = os.Getenv("BACKEND_HOST")
 	port          = "8000"
 )
 
 func main() {
-	log.Println(proxyScheme)
-	log.Println(proxyHost)
-	log.Println(backendSchema)
-	log.Println(backendHost)
 	url := &url.URL{
 		Scheme: proxyScheme,
 		Host:   proxyHost,
