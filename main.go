@@ -9,24 +9,25 @@ import (
 )
 
 var (
-	schema = "http"
-	// backendHost = os.Getenv("BACKEND_HOST")
-	proxyHost = os.Getenv("PROXY_HOST")
-	port      = "8000"
+	proxyScheme   = os.Getenv("PROXY_SCHEME")
+	proxyHost     = os.Getenv("PROXY_HOST")
+	backendSchema = os.Getenv("BACKEND_SCHEMA")
+	backendHost   = os.Getenv("BACKEND_HOST")
+	port          = "8000"
 )
 
 func main() {
 	url := &url.URL{
-		Scheme: schema,
+		Scheme: proxyScheme,
 		Host:   proxyHost,
 	}
 	tr := &http.Transport{
 		Proxy: http.ProxyURL(url),
 	}
 	director := func(req *http.Request) {
-		req.URL.Scheme = "https"
-		req.URL.Host = "example.com"
-		req.Host = "example.com"
+		req.URL.Scheme = backendSchema
+		req.URL.Host = backendHost
+		req.Host = backendHost
 	}
 	handler := &httputil.ReverseProxy{
 		Director:  director,
