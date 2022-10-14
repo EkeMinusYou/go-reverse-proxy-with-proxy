@@ -27,6 +27,8 @@ func main() {
 		req.URL.Scheme = "https"
 		req.URL.Host = "example.com"
 		req.Host = "example.com"
+		dump, _ := httputil.DumpRequest(req, true)
+		log.Println(string(dump))
 	}
 	handler := &httputil.ReverseProxy{
 		Director:  director,
