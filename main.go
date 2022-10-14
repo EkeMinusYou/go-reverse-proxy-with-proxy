@@ -13,7 +13,7 @@ var (
 	proxyHost     = os.Getenv("PROXY_HOST")
 	backendSchema = os.Getenv("BACKEND_SCHEME")
 	backendHost   = os.Getenv("BACKEND_HOST")
-	port          = "8000"
+	port          = "80"
 )
 
 func main() {
